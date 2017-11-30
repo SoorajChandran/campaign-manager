@@ -1,0 +1,109 @@
+.pageTitle{
+  font-weight: 700;
+}
+.main{
+  padding: 25px;
+  padding-top: 60px;
+}
+.campaignCard{
+  min-height: 150px;
+  background:white;
+  border-radius: 3px;
+  border:1px solid #DEE3EB;
+
+  .campaignTitle,.campaignTitle a{
+    font-size: 20px;
+    color:#444;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+  .campaignMetric{
+    .metricTitle{
+      font-size: 14px;
+    }
+    .metricValue{
+      position: relative;
+      margin-bottom: 15px;
+
+      .sign{
+        font-size: 20px;
+        color: #F4B350;
+        position: absolute;
+        top:7px;
+      }
+      .value{
+        font-size: 35px;
+        color: #444; 
+        margin-left: 15px;
+      }
+
+      &.level1{
+        background: #72CAA8;
+        position: relative;
+      }
+      &.level1:after{
+        content: ' ';
+        border-width: 40px;
+        height: 40px;
+      }
+      &.level2{
+        background: #4FA5E4;
+        width: 80%;
+      }
+      &.level3{
+        background: #1266D0;
+        width: 60%;
+      }
+    }
+    div[class*="level"]{
+      color:white;
+      margin: auto;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 3px;
+    }
+  }
+ .cardFooter{
+    border-top:1px solid #DEE3EB;
+    border-bottom: 1px solid #DEE3EB;
+    padding: 10px;
+ }
+}
+
+.pageNumberWrapper{
+  list-style-type: none;
+  padding: 0;
+  display: block;
+  margin: auto;
+  width: 100px;
+  margin-top: 50px;
+  .pageNumber{
+    list-style-type: none;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid #DEE3EB;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+  }
+}
+
+.muted{
+  color:#95A5A6;
+}
+.large{
+  font-size: 29px;
+}
+
+@for $i from 1 through 2 {
+  
+  .b#{$i}{border: #{$i}px solid #DEE3EB;}            
+  .bt#{$i}{border-top: #{$i}px solid #DEE3EB;}       
+  .bb#{$i}{border-bottom:#{$i}px solid #DEE3EB;}     
+  .br#{$i}{border-right: #{$i}px solid #DEE3EB;}     
+  .bl#{$i}{border-left: #{$i}px solid #DEE3EB;} 
+}

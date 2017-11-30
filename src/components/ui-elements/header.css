@@ -1,0 +1,8 @@
+.header {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  background: white;
+  width: 100vw;
+  z-index: 100;
+  border-bottom: 1px solid #DEE3EB; }

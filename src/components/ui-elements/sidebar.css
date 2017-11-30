@@ -1,0 +1,24 @@
+.sidebar {
+  width: 60px;
+  background: #fff;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #DEE3EB; }
+  .sidebar .logo {
+    height: 60px;
+    border-bottom: 1px solid #DEE3EB;
+    font-size: 30px;
+    color: #DEE3EB;
+    text-align: center;
+    line-height: 60px; }
+  .sidebar a {
+    height: 60px;
+    width: 60px;
+    font-size: 30px;
+    text-align: center;
+    display: inline-block;
+    border-right: 2px solid #4A81FD;
+    color: #4A81FD;
+    line-height: 60px; }
