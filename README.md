@@ -1,6 +1,6 @@
 # Campaign manager Dashboard in React JS
 
-React dashboard for campaign management. [Live Demo](https://soorajchandran.github.io/image-hover-zoom/)
+React dashboard for campaign management. [Live Demo](http://campaign-manager-project.s3-website-us-west-2.amazonaws.com/)
 
 
 Clone the repo
