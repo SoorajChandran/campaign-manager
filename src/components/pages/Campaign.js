@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Sidebar from "../ui-elements/Sidebar";
 import Header from "../ui-elements/Header";
 import Funnel from "../ui-elements/Funnel";
@@ -16,7 +17,7 @@ class Campaign extends  React.Component {
     const elem =  document.getElementById("goalValue");
     const goalValue = elem.options[elem.selectedIndex].value;
     const data = this.props.data;
-    for (let item of data) {
+    for (const item of data) {
       if(item.id === this.props.match.params.id){
         item.goal = goalValue;
       }
@@ -47,7 +48,7 @@ class Campaign extends  React.Component {
   render(){
 
     const campaignData = this.props.data.find(this.getData);
-
+    
     return(
       <div >
         <Sidebar/>
@@ -88,6 +89,15 @@ class Campaign extends  React.Component {
   }
 }
 
+Campaign.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape.isRequired
+  }).isRequired,
+  data: PropTypes.shape.isRequired,
+  updateData: PropTypes.func.isRequired
+  
+
+}
 
 
 export default Campaign;

@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Sidebar from "../ui-elements/Sidebar";
 import Header from "../ui-elements/Header";
 import CampaignCard from "../ui-elements/CampaignCard";
 import '../../App.css';
 
 class HomePage extends Component {
-
-  constructor () {
-    super();
-  }
 
   render() {
     return (
@@ -23,6 +19,11 @@ class HomePage extends Component {
     )
   }
 }
+
+HomePage.propTypes = {
+  data: PropTypes.shape.isRequired
+}
+
 
 
 export default HomePage;

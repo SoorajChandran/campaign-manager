@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Funnel from "./Funnel";
 import '../../App.css'
@@ -18,23 +19,11 @@ class CampaignCard extends Component {
     this.sortList = this.sortList.bind(this);
     this.filterList = this.filterList.bind(this);
   }
-
-  handleClick = (event) => {
-    this.setState({
-      currentPage: Number(event.target.id)
-    });
-  }
-
-  filterFunction = (filterValue) => (a) => {
-    if(a[filterValue] != null && a[filterValue] != 0){
-      return true;
-    }
-  };
   
   filterList = () => {
     const elem =  document.getElementById("filter");
     const filterValue = elem.options[elem.selectedIndex].value;
-    if(filterValue == "null") return;
+    if(filterValue === "null") return;
     let campaignData = this.state.data;
     campaignData = campaignData.filter(this.filterFunction(filterValue));
     this.setState({ 
@@ -45,8 +34,8 @@ class CampaignCard extends Component {
   sortList = () => {
     const elem =  document.getElementById("sort");
     const sortValue = elem.options[elem.selectedIndex].value;
-    if(sortValue == "null") return;
-    let campaignData = this.state.data;
+    if(sortValue === "null") return;
+    const campaignData = this.state.data;
     campaignData.sort(this.compare(sortValue));
     this.setState({ 
       data: campaignData
@@ -60,6 +49,19 @@ class CampaignCard extends Component {
     return renderOptions;
   }
 
+  handleClick = (event) => {
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
+  }
+
+  filterFunction = (filterValue) => (a) => {
+    if(a[filterValue] !== null && a[filterValue] !== 0){
+      return true;
+    }
+    return false;
+  };
+
 
   render() {  
 
@@ -71,9 +73,9 @@ class CampaignCard extends Component {
       this.state.data = campaignData;
     }
 
-    let campaignDataGrid = this.state.data.map((data, i) => {
+    const campaignDataGrid = this.state.data.map((data) => {
 
-      return <div key={i} className='col-sm-6 mt-4'>
+      return <div key={data.title} className='col-sm-6 mt-4'>
       <div className="campaignCard">
         <div className="campaignTitle bb1 col-sm-12">
           <Link to={`campaign/${data.id}`}> {data.title || `N.A`}  </Link>   
@@ -177,7 +179,14 @@ class CampaignCard extends Component {
       
     );
   }
-compare = (propName) => (a, b) => a[propName] == b[propName] ? 0 : a[propName] < b[propName] ? 1 : -1;
+  
+compare = (propName) => (a, b) => a[propName] === b[propName] ? 0 : a[propName] < b[propName] ? 1 : -1;
+
 }
+
+CampaignCard.propTypes = {
+  campaignData: PropTypes.shape.isRequired
+}
+
 
 export default CampaignCard;

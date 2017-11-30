@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import React from 'react';
 import './header.css'
 
 const Sidebar = () => (
