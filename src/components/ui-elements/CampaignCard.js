@@ -150,19 +150,16 @@ class CampaignCard extends Component {
       <div className="row">
         <div className="col-sm-12 pt-2">
           <div className="row">
-            <div className="col-sm-1">
-              Sort by:
-            </div>
-            <div className="col-sm-2">
+            <div className="col-sm-3">
+              Sort by: <i className="fa fa-sort-amount-desc" aria-hidden="true"></i>
+            
               <select id="sort" className="form-control" onChange={this.sortList}>
                {sortOptions}
               </select>
             </div>
 
-            <div className="col-sm-1">
-              Filter by:
-            </div>
-            <div className="col-sm-2">
+            <div className="col-sm-3">
+              Filter by: <i className="fa fa-filter" aria-hidden="true"></i>
               <select id="filter" className="form-control" onChange={this.filterList}>
                 {filterOptions}
               </select>
