@@ -32,7 +32,7 @@ class Campaign extends  React.Component {
     else
     {
       return <div> 
-        <div> You have't added a goal yet! </div>
+        <div> You have not added a goal yet! </div>
           <select className="form-control" id="goalValue">
            <option value="awareness"> Awareness </option>
            <option value="consideration"> Consideration </option>
