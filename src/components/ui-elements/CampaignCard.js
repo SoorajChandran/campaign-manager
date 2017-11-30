@@ -10,10 +10,13 @@ class CampaignCard extends Component {
     this.state = {
       currentPage: 1,
       perPage: 8,
-      data: null
+      data: null,
+      sortOptions: [["null","Select"],["reach","Reach"],["views","Views"],["interaction","Interaction"],["sales_conversion_value_cents","Sales conversion"],["lead_conversion_value_cents","Leads conversion"],["days","Duration"]],
+      filterOptions: [["null","Select"],["reach","Reach"],["views","Views"],["sales_conversion_value_cents","Sales conversion"],["lead_conversion_value_cents","Leads conversion"],["goal","Goals"]]
     };
     this.handleClick = this.handleClick.bind(this);
     this.sortList = this.sortList.bind(this);
+    this.filterList = this.filterList.bind(this);
   }
 
   handleClick = (event) => {
@@ -21,8 +24,6 @@ class CampaignCard extends Component {
       currentPage: Number(event.target.id)
     });
   }
-
-
 
   filterFunction = (filterValue) => (a) => {
     if(a[filterValue] != null && a[filterValue] != 0){
@@ -50,6 +51,13 @@ class CampaignCard extends Component {
     this.setState({ 
       data: campaignData
     });
+  }
+
+  getOptions = (optionArray) => {
+    const renderOptions = optionArray.map(option => {
+      return <option key={option[0]} value={option[0]}> {option[1]} </option>
+    });
+    return renderOptions;
   }
 
 
@@ -111,7 +119,6 @@ class CampaignCard extends Component {
       </div>
     })
 
-
     const indexOfLast = currentPage * perPage;
     const indexOfFirst = indexOfLast - perPage;
     const currentItems = campaignDataGrid.slice(indexOfFirst, indexOfLast);
@@ -134,7 +141,8 @@ class CampaignCard extends Component {
       );
     });
 
-
+    const sortOptions = this.getOptions(this.state.sortOptions);
+    const filterOptions = this.getOptions(this.state.filterOptions);
 
     return (
       <div className="row">
@@ -145,13 +153,7 @@ class CampaignCard extends Component {
             </div>
             <div className="col-sm-2">
               <select id="sort" className="form-control" onChange={this.sortList}>
-                <option value="null">Select a value</option>
-                <option value="reach">Reach</option>
-                <option value="views">Views</option>
-                <option value="interaction">Interaction</option>
-                <option value="sales_conversion_value_cents">Sales conversion</option>
-                <option value="days">Duration</option>
-                <option value="lead_conversion_value_cents">Leads conversion</option>
+               {sortOptions}
               </select>
             </div>
 
@@ -160,17 +162,10 @@ class CampaignCard extends Component {
             </div>
             <div className="col-sm-2">
               <select id="filter" className="form-control" onChange={this.filterList}>
-                <option value="null">Select a value</option>
-                <option value="reach">Reach</option>
-                <option value="views">Views</option>
-                <option value="interaction">Interaction</option>
-                <option value="goal">Goals</option>
-                <option value="lead_conversion_value_cents">Leads conversion</option>
-                <option value="sales_conversion_value_cents">Sales conversion</option>
+                {filterOptions}
               </select>
             </div>
           </div>
-          
         </div>
         {currentItems}
         <div className="col-sm-12">
