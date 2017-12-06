@@ -41,9 +41,7 @@ class Campaign extends  React.Component {
          <button className="btn btn-primary mt-2" onClick={this.addGoals}> Add goal now </button>
       </div>
     }
-
   }
-
 
   render(){
 
@@ -76,14 +74,8 @@ class Campaign extends  React.Component {
               </div>
             </div>
           </div>
-          
         </div>
-         
-          
         </div>
-        
-        
-
       </div>
     )
   }
@@ -95,8 +87,6 @@ Campaign.propTypes = {
   }).isRequired,
   data: PropTypes.shape.isRequired,
   updateData: PropTypes.func.isRequired
-  
-
 }
 
 
